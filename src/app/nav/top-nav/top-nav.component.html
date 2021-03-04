@@ -1,0 +1,10 @@
+<mat-toolbar>
+    <button mat-fab color="primary" >
+      <mat-icon>{{icons[0]}}</mat-icon>
+    </button>
+    <button mat-flat-button color="accent" *ngFor="let button of navButtons" class="button-spacer" matBadge="2">{{button}}</button>
+  <span class="example-spacer"></span>
+  <button mat-fab color="primary" >
+    <mat-icon>{{icons[1]}}</mat-icon>
+  </button>
+</mat-toolbar>
