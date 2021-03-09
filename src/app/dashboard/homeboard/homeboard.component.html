@@ -1,34 +1,24 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="4" rowHeight="500px">
-    <mat-grid-tile *ngFor="let card of allProducts" [colspan]="1" [rowspan]="1">
-      <mat-card class="dashboard-card">
-        <mat-card-content *ngIf="card.image" class="dashboard-card-content">
-          <!-- <img mat-card-image src='{{card.image}}' alt=""> -->
-          <!-- prevent downloading 90pics every refresh -->
-          <img mat-card-image src='{{allProducts[0].image}}' alt="no image">
-          <!-- ^^ -->
-        </mat-card-content>
-        <mat-chip-list *ngIf="card.marks">
-          <mat-chip *ngIf="card.marks.includes('LastItems')" color="accent" selected>Last items</mat-chip>
-          <mat-chip *ngIf="card.marks.includes('Sale')" color="warn" selected>Sale</mat-chip>
-        </mat-chip-list>
-        <mat-card-header>
-          <mat-card-title>
-            {{card.producer}}
-            <mat-card-subtitle>{{card.name}}</mat-card-subtitle>
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <button mat-raised-button color="primary">Buy</button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+          <div class="dashboard container-fluid content-row">
+            <div class="row">
+              <div class="col-md-3 " *ngFor="let card of products;">
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+                  <!-- <img mat-card-image src='{{card.image}}' alt="no image"> -->
+                  <!-- prevent downloading 90pics every refresh -->
+                  <img class="card-img-top" src="{{products[0].image}}" alt="Card image cap">
+                  <div class="card-body">
+                    <div class="badges"><span class="badge" *ngIf="card.marks && card.marks.includes('Sale')"
+                        class="badge badge-danger">Sale</span>
+                      <span *ngIf="card.marks && card.marks.includes('LastItems')" class="badge badge-warning">Last
+                        Items</span>
+                    </div>
+                    <h3 class="card-title"><strong>{{card.producer}}</strong></h3>
+                    <h4 class="card-subtitle">{{card.name}}</h4>
+                    <button type="button" class="btn btn-primary">Buy</button>
+                    <div class="prices">
+                      <p [ngClass]="{'price': card.oldPrice}" class="text-right">{{card.price}} PLN</p>
+                      <p class="old-price text-right" *ngIf="card.oldPrice">{{card.oldPrice}} PLN</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>

@@ -1,10 +1,15 @@
 <mat-toolbar>
-    <button mat-fab color="primary" >
-      <mat-icon>{{icons[0]}}</mat-icon>
-    </button>
-    <button mat-flat-button color="accent" *ngFor="let button of navButtons" class="button-spacer" matBadge="2">{{button}}</button>
+  <button mat-fab color="primary" routerLink="/home" [queryParams]="{prop: 'home'}">
+    <mat-icon> {{icons[0]}}</mat-icon>
+  </button>
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.sale}}" routerLink="/sale"
+    [queryParams]="{prop: 'sale'}">{{navButtons[0]}}</button>
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.samsung}}" routerLink="/samsung"
+    [queryParams]="{prop: 'samsung'}">{{navButtons[1]}}</button>
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.apple}}" routerLink="/apple"
+    [queryParams]="{prop: 'apple'}">{{navButtons[2]}}</button>
   <span class="example-spacer"></span>
-  <button mat-fab color="primary" >
+  <button mat-fab color="primary">
     <mat-icon>{{icons[1]}}</mat-icon>
   </button>
 </mat-toolbar>
