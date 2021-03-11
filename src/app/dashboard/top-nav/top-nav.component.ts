@@ -3,8 +3,12 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  forEach
+  forEach,
+  sumBy
 } from 'lodash';
+import {
+  Observable
+} from 'rxjs';
 import {
   ProductsService
 } from 'src/app/products.service';
@@ -23,13 +27,16 @@ export class TopNavComponent implements OnInit {
   icons = new Array();
   data: any;
   badge: any;
-
-  constructor(private service: ProductsService) {}
+  constructor(private service: ProductsService, private shared: SharedService) {}
 
   ngOnInit(): void {
     this.navButtons = ['On Sale', 'Samsung', 'Apple'];
     this.icons = ['home', 'shopping_cart'];
     this.getBadges();
+    this.getSummaryPriceCart();
+  }
+  getSummaryPriceCart() {
+    return this.shared.getSummaryPriceCart();
   }
   getBadges() {
     this.badge = this.service.badges

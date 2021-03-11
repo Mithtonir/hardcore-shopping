@@ -1,6 +1,14 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.button-spacer{
-    margin-left: 1%;
+
+.button-spacer {
+  margin-left: 1%;
+}
+
+.cart-button {
+  .price {
+    font-weight: bold;
+    color: blue;
+  }
 }

@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Output
 } from '@angular/core';
 import {
   ProductsService
@@ -19,7 +20,13 @@ import {
 import {
   filter
 } from 'rxjs/operators';
-import {bootstrap} from 'node_modules/bootstrap';
+import { SharedService } from '../shared.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-homeboard',
@@ -27,12 +34,15 @@ import {bootstrap} from 'node_modules/bootstrap';
   styleUrls: ['./homeboard.component.scss']
 })
 export class HomeboardComponent implements OnInit {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   products: any;
   productsOnSale: any;
   productsSamsung: any;
   productsApple: any;
   allProducts: any;
   acutualUrl: String;
+  cart = JSON.parse(localStorage.getItem('cart'));
 
   getProducts() {
     this.service.getProducts().subscribe((data) => {
@@ -45,15 +55,11 @@ export class HomeboardComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.goTo(this.acutualUrl)
+    this.goTo(this.acutualUrl);
   }
-  ngAfterContentInit(): void {
-    this.products = this.allProducts;
-  }
-  
   ngAfterViewInit(): void {}
   ngOnDestroy() {}
-  goTo(simpleUrl) {
+  goTo(simpleUrl: String) {
     switch (simpleUrl) {
       case '/sale?prop=sale':
         this.products = this.productsOnSale;
@@ -70,10 +76,25 @@ export class HomeboardComponent implements OnInit {
     }
 
   }
-  trackByMethod(index: number, el: any): number {
+  
+  trackBy(index: number, el: any): number {
     return el.id;
   }
-  constructor(private service: ProductsService, private router: Router) {
+  addToCart(item){
+    this.cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(this.cart) );
+    this.shared.getSummaryPriceCart();
+    this.openSnackBar()
+  }
+  openSnackBar() {
+    this._snackBar.open('Product added to cart', 'ok', {
+      duration: 500,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      
+    });
+  }
+  constructor(private service: ProductsService, private router: Router, private shared: SharedService, private _snackBar: MatSnackBar) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
       var simpleUrl = valuesIn(event)[1];
       this.acutualUrl = simpleUrl;

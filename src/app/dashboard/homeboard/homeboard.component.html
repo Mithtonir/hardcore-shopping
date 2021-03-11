@@ -1,6 +1,6 @@
           <div class="dashboard container-fluid content-row">
             <div class="row">
-              <div class="col-md-3 " *ngFor="let card of products;">
+              <div class="col-md-3 " *ngFor="let card of products; trackBy: trackBy">
                 <div class="card shadow-sm p-3 mb-5 bg-white rounded">
                   <!-- <img mat-card-image src='{{card.image}}' alt="no image"> -->
                   <!-- prevent downloading 90pics every refresh -->
@@ -13,7 +13,7 @@
                     </div>
                     <h3 class="card-title"><strong>{{card.producer}}</strong></h3>
                     <h4 class="card-subtitle">{{card.name}}</h4>
-                    <button type="button" class="btn btn-primary">Buy</button>
+                    <button type="button" class="btn btn-primary" (click)="addToCart(card);openSnackBar()">Buy</button>
                     <div class="prices">
                       <p [ngClass]="{'price': card.oldPrice}" class="text-right">{{card.price}} PLN</p>
                       <p class="old-price text-right" *ngIf="card.oldPrice">{{card.oldPrice}} PLN</p>

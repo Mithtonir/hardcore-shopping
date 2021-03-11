@@ -7,9 +7,11 @@
   <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.samsung}}" routerLink="/samsung"
     [queryParams]="{prop: 'samsung'}">{{navButtons[1]}}</button>
   <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.apple}}" routerLink="/apple"
-    [queryParams]="{prop: 'apple'}">{{navButtons[2]}}</button>
+    [queryParams]="{prop: 'apple'}">{{navButtons[2]}}</button> 
   <span class="example-spacer"></span>
-  <button mat-fab color="primary">
+  <div class="cart-button">
+  <button mat-fab color="primary" routerLink="/cart" [queryParams]="{prop: 'cart'}">
     <mat-icon>{{icons[1]}}</mat-icon>
   </button>
+ <small class="price"> {{getSummaryPriceCart() || 0}} PLN</small></div>
 </mat-toolbar>
