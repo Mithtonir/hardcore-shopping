@@ -2,9 +2,9 @@
             <div class="row">
               <div class="col-md-3 " *ngFor="let card of products; trackBy: trackBy">
                 <div class="card shadow-sm p-3 mb-5 bg-white rounded">
-                  <!-- <img mat-card-image src='{{card.image}}' alt="no image"> -->
+                  <img mat-card-image src='{{card.image}}' alt="no image">
                   <!-- prevent downloading 90pics every refresh -->
-                  <img class="card-img-top" src="{{products[0].image}}" alt="Card image cap">
+                  <!-- <img class="card-img-top" src="{{products[0].image}}" alt="Card image cap"> -->
                   <div class="card-body">
                     <div class="badges"><span class="badge" *ngIf="card.marks && card.marks.includes('Sale')"
                         class="badge badge-danger">Sale</span>
