@@ -1,0 +1,48 @@
+<div *ngIf="cart && cart.length>0" class="cart container-fluid content-row shadow-sm p-3 mb-5 bg-white rounded">
+  <header>
+    <div class="header">
+      <div class="row">
+        <div class="header col">
+          <h1>Cart Checkout</h1>
+        </div>
+        <div class="button col">
+          <button type="button" class="btn btn-primary btn-lg float-right" (click)="submitOrder()">Submit Order</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product</th>
+        <th scope="col"></th>
+        <th scope="col">Unit</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Row Total</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart; let indexOFelement=index;">
+        <th scope="row">{{indexOFelement}}</th>
+        <td class="image"><img src='{{item.image}}' alt="no image"></td>
+        <td>{{item.name}}</td>
+        <td>{{item.price | currency: 'PLN '}}</td>
+        <td>{{item.qty}}</td>
+        <td>{{item.price * item.qty | currency: 'PLN '}}</td>
+        <td><button mat-flat-button (click)="deleteItem(indexOFelement)">
+            <mat-icon>delete</mat-icon>
+          </button></td>
+      </tr>
+    </tbody>
+  </table>
+  <footer>
+    <div class="footer">Total: <strong>{{getTotalPrice() | currency:"PLN "}}</strong> </div>
+  </footer>
+</div>
+<div *ngIf="!cart">
+  <h1>The cart is empty</h1>
+</div>

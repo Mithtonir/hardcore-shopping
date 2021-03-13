@@ -2,16 +2,17 @@
   <button mat-fab color="primary" routerLink="/home" [queryParams]="{prop: 'home'}">
     <mat-icon> {{icons[0]}}</mat-icon>
   </button>
-  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.sale}}" routerLink="/sale"
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.sale}}" routerLink="/home"
     [queryParams]="{prop: 'sale'}">{{navButtons[0]}}</button>
-  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.samsung}}" routerLink="/samsung"
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.samsung}}" routerLink="/home"
     [queryParams]="{prop: 'samsung'}">{{navButtons[1]}}</button>
-  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.apple}}" routerLink="/apple"
-    [queryParams]="{prop: 'apple'}">{{navButtons[2]}}</button> 
+  <button mat-flat-button color="accent" class="button-spacer" matBadge="{{badge.apple}}" routerLink="/home"
+    [queryParams]="{prop: 'apple'}">{{navButtons[2]}}</button>
   <span class="example-spacer"></span>
   <div class="cart-button">
-  <button mat-fab color="primary" routerLink="/cart" [queryParams]="{prop: 'cart'}">
-    <mat-icon>{{icons[1]}}</mat-icon>
-  </button>
- <small class="price"> {{getSummaryPriceCart() || 0}} PLN</small></div>
+    <button mat-fab color="primary" routerLink="/cart" [queryParams]="{prop: 'cart'}">
+      <mat-icon>{{icons[1]}}</mat-icon>
+    </button>
+    <small class="price"> {{getSummaryPriceCart() || 0}} PLN</small></div>
 </mat-toolbar>
+<router-outlet></router-outlet>

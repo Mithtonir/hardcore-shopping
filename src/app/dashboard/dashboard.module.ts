@@ -12,9 +12,14 @@ import {MatChipsModule} from '@angular/material/chips';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+
+
 
 @NgModule({
-  declarations: [HomeboardComponent, TopNavComponent],
+  declarations: [HomeboardComponent, TopNavComponent, CartDialogComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -26,9 +31,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     LayoutModule,
     MatChipsModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSnackBarModule,
+    MatDialogModule
     
   ],
-  exports: [HomeboardComponent, TopNavComponent]
+  exports: [HomeboardComponent, TopNavComponent, CartDialogComponent]
 })
 export class DashboardModule { }

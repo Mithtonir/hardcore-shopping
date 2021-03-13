@@ -3,6 +3,9 @@ import {
   OnInit
 } from '@angular/core';
 import {
+  Router
+} from '@angular/router';
+import {
   forEach,
   sumBy
 } from 'lodash';
@@ -27,7 +30,7 @@ export class TopNavComponent implements OnInit {
   icons = new Array();
   data: any;
   badge: any;
-  constructor(private service: ProductsService, private shared: SharedService) {}
+  constructor(private service: ProductsService, private shared: SharedService, private router: Router) {}
 
   ngOnInit(): void {
     this.navButtons = ['On Sale', 'Samsung', 'Apple'];

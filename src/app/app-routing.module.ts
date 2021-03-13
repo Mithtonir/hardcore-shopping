@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartDialogComponent } from './dashboard/cart-dialog/cart-dialog.component';
 
 const routes: Routes = [
   ];

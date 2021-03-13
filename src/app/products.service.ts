@@ -34,7 +34,7 @@ export class ProductsService {
   }
 
   public getProducts() {
-    
+
     return this.http.get(this.url + 'products').pipe(
       map((data: any) => {
         //Could use after filtering  data.lenght (in filterProductsForNavRouting) for optimization purposes but let it stay that way
@@ -57,9 +57,8 @@ export class ProductsService {
           "allProducts": data,
           "filteredProducts": this.filterProductsForNavRouting(data)
         };
-
       }),
-       catchError(error => {
+      catchError(error => {
         return throwError('Something went wrong!');
       })
     );
@@ -86,7 +85,7 @@ export class ProductsService {
       apples
     ]
   }
-  confirmOrder() {
-    //to be done.
+  confirmOrder(orders) {
+    return this.http.post(this.url + 'orders', orders).subscribe(d => {})
   }
 }

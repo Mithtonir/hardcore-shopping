@@ -7,7 +7,9 @@ import {
   ProductsService
 } from 'src/app/products.service';
 import {
+  find,
   find as _find,
+  findIndex,
   valuesIn
 } from 'lodash';
 import {
@@ -55,19 +57,20 @@ export class HomeboardComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.goTo(this.acutualUrl);
   }
   ngAfterViewInit(): void {}
   ngOnDestroy() {}
   goTo(simpleUrl: String) {
+    let home = '/home?prop='
     switch (simpleUrl) {
-      case '/sale?prop=sale':
+      case home + 'sale':
         this.products = this.productsOnSale;
+
         break;
-      case '/samsung?prop=samsung':
+      case home + 'samsung':
         this.products = this.productsSamsung;
         break;
-      case '/apple?prop=apple':
+      case home + 'apple':
         this.products = this.productsApple;
         break;
       default:
@@ -81,7 +84,17 @@ export class HomeboardComponent implements OnInit {
     return el.id;
   }
   addToCart(item){
-    this.cart.push(item);
+    if(!this.cart){
+      this.cart = []
+    }
+    let isDoboubled = findIndex(this.cart, {'id': item.id});
+    if(isDoboubled > -1){
+      this.cart[isDoboubled].qty +=1
+    }
+    else { 
+      item.qty = 1  
+      this.cart.push(item);}
+  
     localStorage.setItem('cart', JSON.stringify(this.cart) );
     this.shared.getSummaryPriceCart();
     this.openSnackBar()

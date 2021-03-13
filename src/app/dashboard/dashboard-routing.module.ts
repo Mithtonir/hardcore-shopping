@@ -6,18 +6,20 @@ import {
   Routes
 } from '@angular/router';
 import {
+  CartDialogComponent
+} from './cart-dialog/cart-dialog.component';
+import {
   HomeboardComponent
 } from './homeboard/homeboard.component';
 
-const routes: Routes = [
-  {
+const routes: Routes = [{
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   {
     path: 'home',
-    component: HomeboardComponent,
+    component: HomeboardComponent
   },
   {
     path: 'sale',
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path: 'apple',
     component: HomeboardComponent
+  },
+  {
+    path: 'cart',
+    component: CartDialogComponent
   }
 ];
 
