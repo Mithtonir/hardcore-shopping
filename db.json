@@ -2154,6 +2154,77 @@
         "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/8/pr_2019_8_8_9_48_11_571_00.jpg",
         "qty": 1
       }
+    ],
+    [
+      {
+        "id": "536262",
+        "rating": 5.9,
+        "commentsCount": 10,
+        "ean": "SM-A715FZBUXEO",
+        "name": "Galaxy A71 SM-A715F Blue",
+        "producer": "Samsung",
+        "status": "Available",
+        "marks": null,
+        "features": [
+          "Ekran: 6,7\"",
+          "Procesor: Qualcomm Snapdragon 730",
+          "Pamięć: 128 GB",
+          "System: Android 10",
+          "Bateria: 4500 mAh"
+        ],
+        "price": 1999,
+        "oldPrice": null,
+        "thumbnail": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2020/1/pr_2020_1_2_15_5_1_833_02.jpg",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2020/1/pr_2020_1_2_15_5_1_833_02.jpg",
+        "qty": 1
+      },
+      {
+        "id": "478665",
+        "rating": 6,
+        "commentsCount": 9,
+        "ean": "SM-G973FZGDXEO",
+        "name": "Galaxy S10 G973F Prism Green",
+        "producer": "Samsung",
+        "status": "Available",
+        "marks": [
+          "Sale",
+          "CrossedPrice"
+        ],
+        "features": [
+          "Ekran: 6,1\"",
+          "Procesor: Samsung Exynos 9820",
+          "Pamięć: 128 GB",
+          "System: Android 9.0 Pie",
+          "Bateria: 3400 mAh"
+        ],
+        "price": 2999,
+        "oldPrice": 3299,
+        "thumbnail": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/2/pr_2019_2_19_14_24_25_862_06.jpg",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/2/pr_2019_2_19_14_24_25_862_06.jpg",
+        "qty": 1
+      },
+      {
+        "id": "515877",
+        "rating": 6,
+        "commentsCount": 3,
+        "ean": "MWC52PM/A",
+        "name": "iPhone 11 Pro 64GB Gold",
+        "producer": "Apple",
+        "status": "Available",
+        "marks": null,
+        "features": [
+          "Ekran: 5,8\"",
+          "Procesor: Apple A13 Bionic",
+          "Pamięć: 64 GB",
+          "System: iOS 13",
+          "Bateria: 3190 mAh"
+        ],
+        "price": 4549,
+        "oldPrice": null,
+        "thumbnail": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-small,,2019/9/pr_2019_9_11_9_21_31_289_00.jpg",
+        "image": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-large,,2019/9/pr_2019_9_11_9_21_31_289_00.jpg",
+        "qty": 1
+      }
     ]
   ]
 }

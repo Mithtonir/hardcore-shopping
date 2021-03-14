@@ -1,3 +1,14 @@
+# To run project:
+0. you need the newest node.js to use npm command, 
+ for terminal purposes you can use prompt command, ConEmu, powershell or VS Code terminal
+1. npm update
+2. npm install
+3. npm install -g @angular/cli, npm install -g json-server
+4. To start json-server as local data server use command: json-server --watch db.json (data GETs and POSTs will be stored here: 'db.json')
+5. To run Angular project type: ng serve
+6. Go to `http://localhost:4200/`
+7. For more info contact me or just read lines below
+
 # Json Server for CRUD
 json-server --watch db.json
 # ShopProject
